@@ -1,73 +1,64 @@
-<img alt="React Native Typescript Library Starter" src="assets/logo.png" width="1050"/>
+<img alt="React Native Segmented Control 2" src="assets/logo.png" width="1050"/>
 
-[![Battle Tested ✅](https://img.shields.io/badge/-Battle--Tested%20%E2%9C%85-03666e?style=for-the-badge)](https://github.com/WrathChaos/react-native-typescript-library-starter)
+[![React Native Segmented Control 2](https://img.shields.io/badge/-%F0%9F%9A%80%20React%20Native%20Segmented%20Control%2C%20Pure%20Javascript%20for%20iOS%20and%20Android-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-segmented-control-2)
 
-[![React Native Typescript Library Starter](https://img.shields.io/badge/-Extremely%20easy%20to%20create%20a%20React%20Native%20Component%20Library%20with%20both%20Stateful%20and%20Functional%20Component%20Examples-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-typescript-library-starter)
-
-[![npm version](https://img.shields.io/npm/v/react-native-typescript-library-starter.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-typescript-library-starter)
-[![npm](https://img.shields.io/npm/dt/react-native-typescript-library-starter.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-typescript-library-starter)
+[![npm version](https://img.shields.io/npm/v/react-native-segmented-control-2.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-segmented-control-2)
+[![npm](https://img.shields.io/npm/dt/react-native-segmented-control-2.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-segmented-control-2)
 ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
 <p align="center">
-  <img alt="React Native Typescript Library Starter"
-        src="assets/Screenshots/typescript.jpg" />
+  <img alt="React Native Segmented Control 2"
+        src="assets/Screenshots/react-native-segmented-control-2.gif" />
 </p>
-
-## Library Usage
-
-- `npm i`
-- `npm run husky:setup`
-- Delete example folder
-- Delete build folder
-- Make your own library into the `lib` folder
-- Change package.json
-- Change README for your own documentation
-- `npm run build`
-
-```
-> react-native-typescript-library-starter@0.1.0 build /Users/kuray/Coursion/MyLibraries/ReactNative/react-native-typescript-library-starter
-> cd lib && tsc && cp ../package.json ../build/dist/ && Echo Build completed!
-
-Build completed!
-```
-
-- Test your build/dist into the new project
-- Finally, time to npm publish :)
-
-### Below part is for Documentation ! Remove above Library Usage
 
 # Installation
 
 Add the dependency:
 
 ```bash
-npm i react-native-typescript-library-starter
+npm i react-native-segmented-control-2
 ```
 
 ## Peer Dependencies
 
-<h5><i>IMPORTANT! You need install them</i></h5>
-
-```js
-"react": ">= 16.x.x",
-"react-native": ">= 0.55.x",
-```
+<b><i>Zero Dependency</i></b> 🥳
 
 # Usage
 
 ## Import
 
 ```jsx
-import MyComponent from "react-native-typescript-library-starter";
+import SegmentedControl from "react-native-segmented-control-2";
 ```
 
 ## Fundamental Usage
 
 ```jsx
-<MyComponent />
+ <SegmentedControl
+    tabs={["Label 1", "Label 2", "Label 3"]}
+    onChange={(index: number) => console.log("Index: ", index)}
+/>
 ```
+
+## Customized Usage
+
+```jsx
+<SegmentedControl
+    style={{ marginTop: 32, backgroundColor: "#ffe0e0" }}
+    activeTabColor="#ff2929"
+    activeTextColor="#fff"
+    tabs={["Label 1", "Label 2", "Label 3"]}
+    onChange={(index: number) => console.log("Index: ", index)}
+/>
+```
+
+### Any Component Usage
+
+You can use the segmented control with any component. 
+All you need to do is that put any component into the `tabs` props. 
+Please check out the `example` for its usage
 
 ## Example Project 😍
 
@@ -84,30 +75,29 @@ should work of the example project.
 
 ## Fundamentals
 
-| Property    |  Type  |  Default  | Description           |
-| ----------- | :----: | :-------: | --------------------- |
-| title       | string | undefined | change the title      |
-| description | string | undefined | change the descrition |
+
+| Property |   Type   |  Default  | Description                                    |
+|----------|:--------:| :-------: |------------------------------------------------|
+| tabs     |  any[]   | undefined | set the array for tabs                         |
+| onChange        | function | undefined | set your own logic when the tab is pressed / changed |
 
 ## Customization (Optionals)
 
-| Property       |   Type    |  Default  | Description                                                            |
-| -------------- | :-------: | :-------: | ---------------------------------------------------------------------- |
-| enableButton   |  boolean  |   false   | let you enable the button (must use it for button)                     |
-| onPress        | function  | undefined | set your own logic for the button functionality when it is pressed     |
-| buttonText     |  string   | undefined | change the button's text                                               |
-| style          | ViewStyle |  default  | set or override the style object for the main container                |
-| buttonStyle    | ViewStyle |  default  | set or override the style object for the button style                  |
-| ImageComponent |   Image   |  default  | set your own component instead of default react-native Image component |
+| Property        |   Type    |      Default      | Description                                             |
+|-----------------|:---------:|:-----------------:|---------------------------------------------------------|
+| style           | ViewStyle |      default      | set or override the style object for the main container |
+| width           |  number   | ScreenWidth * 0.9 | change the width of the main segmented control          |
+| initialIndex    |  number   |         0         | set the initial index                                   |
+| activeTextColor |  string   |       #000        | change the active tab's text color                      |
+| activeTabColor  |  string   |        #FFF         | change the active tab's color                           |
+| tabStyle           | ViewStyle |      default      | set or override the style object for the tab            |
+| textStyle           |  TextStyle   |      default      | set or override the style object for tab's text         |
 
 ## Future Plans
 
 - [x] ~~LICENSE~~
 - [ ] Write an article about the lib on Medium
 
-# Change Log
-
-Change log will be here !
 
 ## Author
 
@@ -115,4 +105,4 @@ FreakyCoder, kurayogun@gmail.com
 
 ## License
 
-React Native Typescript Library Starter is available under the MIT license. See the LICENSE file for more info.
+React Native Segmented Control 2 is available under the MIT license. See the LICENSE file for more info.
