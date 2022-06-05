@@ -98,6 +98,13 @@ should work of the example project.
 - [x] ~~LICENSE~~
 - [ ] Write an article about the lib on Medium
 
+## Credits
+
+Heavily inspired by these libraries: 
+- [react-native-segmented-control/segmented-control](https://github.com/react-native-segmented-control/segmented-control)
+- [Karthik-B-06/react-native-segmented-control](https://github.com/Karthik-B-06/react-native-segmented-control)
+
+I created this library because they're really not maintain actively and this is a pure javascript written library
 
 ## Author
 
