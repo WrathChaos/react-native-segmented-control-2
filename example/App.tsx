@@ -4,6 +4,10 @@ import SegmentedControl from "./lib/SegmentedControl";
 
 const { width: ScreenWidth } = Dimensions.get("screen");
 
+const book = require("./assets/book.png");
+const glasses = require("./assets/glasses.png");
+const history = require("./assets/history.png");
+
 const App = () => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
 
@@ -32,10 +36,20 @@ const App = () => {
     />
   );
 
+  const renderImage = (imageSource: any) => (
+    <Image
+      resizeMode="contain"
+      source={imageSource}
+      style={{
+        width: imageSource === glasses ? 30 : 20,
+        height: imageSource === glasses ? 30 : 20,
+      }}
+    />
+  );
+
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <SegmentedControl
-        // tabs={["Income", "Expenses", "Exchange"]}
         tabs={[renderAdd(), renderMinus()]}
         width={ScreenWidth * 0.3}
         activeTextColor="#fff"
@@ -43,8 +57,40 @@ const App = () => {
         onChange={(index: number) => setCurrentIndex(index)}
       />
       <SegmentedControl
+        tabs={[renderImage(book), renderImage(glasses), renderImage(history)]}
+        style={{ height: 35, marginTop: 32, backgroundColor: "#EEEEEE" }}
+        activeTabColor="#FFFFFF"
+        onChange={(index: number) => console.log("Index: ", index)}
+      />
+      <SegmentedControl
+        style={{ marginTop: 32 }}
+        tabs={["Home", "Shop"]}
+        onChange={(index: number) => console.log("Index: ", index)}
+      />
+      <SegmentedControl
         style={{ marginTop: 32 }}
         tabs={["Income", "Expenses", "Exchange"]}
+        onChange={(index: number) => console.log("Index: ", index)}
+      />
+      <SegmentedControl
+        style={{ marginTop: 32, backgroundColor: "#87C4FD" }}
+        activeTabColor="#0581F7"
+        activeTextColor="#fff"
+        tabs={["Label 1", "Label 2", "Label 3"]}
+        onChange={(index: number) => console.log("Index: ", index)}
+      />
+      <SegmentedControl
+        style={{ marginTop: 32, backgroundColor: "#f7e6b7" }}
+        activeTabColor="#fcba03"
+        activeTextColor="#fff"
+        tabs={["Label 1", "Label 2", "Label 3"]}
+        onChange={(index: number) => console.log("Index: ", index)}
+      />
+      <SegmentedControl
+        style={{ marginTop: 32, backgroundColor: "#ffe0e0" }}
+        activeTabColor="#ff2929"
+        activeTextColor="#fff"
+        tabs={["Label 1", "Label 2", "Label 3"]}
         onChange={(index: number) => console.log("Index: ", index)}
       />
     </View>
