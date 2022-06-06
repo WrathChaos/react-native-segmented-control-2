@@ -10,7 +10,7 @@
 
 <p align="center">
   <img alt="React Native Segmented Control 2"
-        src="assets/Screenshots/react-native-segmented-control-2.gif" height="800" />
+        src="assets/Screenshots/react-native-segmented-control-2.gif" height="950" width="465" />
 </p>
 
 # Installation
