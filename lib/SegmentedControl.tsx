@@ -25,14 +25,15 @@ export type CustomStyleProp =
 type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<TextStyle>>;
 
 interface SegmentedControlProps {
-  style?: CustomStyleProp;
   tabs: any[];
   width?: number;
   initialIndex?: number;
   activeTextColor?: string;
   activeTabColor?: string;
+  style?: CustomStyleProp;
   tabStyle?: CustomStyleProp;
   textStyle?: CustomTextStyleProp;
+  selectedTabStyle?: CustomStyleProp;
   onChange: (index: number) => void;
 }
 
@@ -41,9 +42,10 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   tabs,
   width,
   onChange,
-  initialIndex = 0,
   tabStyle,
   textStyle,
+  selectedTabStyle,
+  initialIndex = 0,
   activeTextColor = "#000",
   activeTabColor = "#fff",
 }) => {
@@ -68,7 +70,10 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 
   const renderSelectedTab = () => (
     <Animated.View
-      style={[_selectedTabStyle(tabs, activeTabColor, slideAnimation, width)]}
+      style={[
+        _selectedTabStyle(tabs, activeTabColor, slideAnimation, width),
+        selectedTabStyle,
+      ]}
     />
   );
 

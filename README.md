@@ -36,9 +36,9 @@ import SegmentedControl from "react-native-segmented-control-2";
 ## Fundamental Usage
 
 ```jsx
- <SegmentedControl
-    tabs={["Label 1", "Label 2", "Label 3"]}
-    onChange={(index: number) => console.log("Index: ", index)}
+<SegmentedControl
+  tabs={["Label 1", "Label 2", "Label 3"]}
+  onChange={(index: number) => console.log("Index: ", index)}
 />
 ```
 
@@ -46,18 +46,18 @@ import SegmentedControl from "react-native-segmented-control-2";
 
 ```jsx
 <SegmentedControl
-    style={{ marginTop: 32, backgroundColor: "#ffe0e0" }}
-    activeTabColor="#ff2929"
-    activeTextColor="#fff"
-    tabs={["Label 1", "Label 2", "Label 3"]}
-    onChange={(index: number) => console.log("Index: ", index)}
+  style={{ marginTop: 32, backgroundColor: "#ffe0e0" }}
+  activeTabColor="#ff2929"
+  activeTextColor="#fff"
+  tabs={["Label 1", "Label 2", "Label 3"]}
+  onChange={(index: number) => console.log("Index: ", index)}
 />
 ```
 
 ### Any Component Usage
 
-You can use the segmented control with any component. 
-All you need to do is that put any component into the `tabs` props. 
+You can use the segmented control with any component.
+All you need to do is that put any component into the `tabs` props.
 Please check out the `example` for its usage
 
 ## Example Project 😍
@@ -75,23 +75,23 @@ should work of the example project.
 
 ## Fundamentals
 
-
-| Property |   Type   |  Default  | Description                                    |
-|----------|:--------:| :-------: |------------------------------------------------|
-| tabs     |  any[]   | undefined | set the array for tabs                         |
-| onChange        | function | undefined | set your own logic when the tab is pressed / changed |
+| Property |   Type   |  Default  | Description                                          |
+| -------- | :------: | :-------: | ---------------------------------------------------- |
+| tabs     |  any[]   | undefined | set the array for tabs                               |
+| onChange | function | undefined | set your own logic when the tab is pressed / changed |
 
 ## Customization (Optionals)
 
-| Property        |   Type    |      Default      | Description                                             |
-|-----------------|:---------:|:-----------------:|---------------------------------------------------------|
-| style           | ViewStyle |      default      | set or override the style object for the main container |
-| width           |  number   | ScreenWidth * 0.9 | change the width of the main segmented control          |
-| initialIndex    |  number   |         0         | set the initial index                                   |
-| activeTextColor |  string   |       #000        | change the active tab's text color                      |
-| activeTabColor  |  string   |        #FFF         | change the active tab's color                           |
-| tabStyle           | ViewStyle |      default      | set or override the style object for the tab            |
-| textStyle           |  TextStyle   |      default      | set or override the style object for tab's text         |
+| Property         |   Type    |      Default       | Description                                             |
+| ---------------- | :-------: | :----------------: | ------------------------------------------------------- |
+| style            | ViewStyle |      default       | set or override the style object for the main container |
+| width            |  number   | ScreenWidth \* 0.9 | change the width of the main segmented control          |
+| initialIndex     |  number   |         0          | set the initial index                                   |
+| activeTextColor  |  string   |        #000        | change the active tab's text color                      |
+| activeTabColor   |  string   |        #FFF        | change the active tab's color                           |
+| tabStyle         | ViewStyle |      default       | set or override the style object for the tab            |
+| selectedTabStyle | ViewStyle |      default       | set or override the style object for the selected tab   |
+| textStyle        | TextStyle |      default       | set or override the style object for tab's text         |
 
 ## Future Plans
 
@@ -100,7 +100,8 @@ should work of the example project.
 
 ## Credits
 
-Heavily inspired by these libraries: 
+Heavily inspired by these libraries:
+
 - [react-native-segmented-control/segmented-control](https://github.com/react-native-segmented-control/segmented-control)
 - [Karthik-B-06/react-native-segmented-control](https://github.com/Karthik-B-06/react-native-segmented-control)
 
