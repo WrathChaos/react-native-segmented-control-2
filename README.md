@@ -89,6 +89,7 @@ should work of the example project.
 | initialIndex     |  number   |         0          | set the initial index                                   |
 | activeTextColor  |  string   |        #000        | change the active tab's text color                      |
 | activeTabColor   |  string   |        #FFF        | change the active tab's color                           |
+| extraSpacing     |  number   |         0          | set extra spacing for animation horizontal value        |
 | tabStyle         | ViewStyle |      default       | set or override the style object for the tab            |
 | selectedTabStyle | ViewStyle |      default       | set or override the style object for the selected tab   |
 | textStyle        | TextStyle |      default       | set or override the style object for tab's text         |

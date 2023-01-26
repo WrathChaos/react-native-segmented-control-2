@@ -30,6 +30,7 @@ interface SegmentedControlProps {
   initialIndex?: number;
   activeTextColor?: string;
   activeTabColor?: string;
+  extraSpacing?: number;
   style?: CustomStyleProp;
   tabStyle?: CustomStyleProp;
   textStyle?: CustomTextStyleProp;
@@ -48,8 +49,10 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   initialIndex = 0,
   activeTextColor = "#000",
   activeTabColor = "#fff",
+  extraSpacing = 0,
 }) => {
-  const translateValue = (width ? width : ScreenWidth - 35) / tabs.length;
+  const translateValue =
+    (width ? width + extraSpacing : ScreenWidth - 35) / tabs.length;
   const [slideAnimation, _] = useState(new Animated.Value(0));
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
 
