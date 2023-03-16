@@ -3,7 +3,6 @@ import { CustomStyleProp } from "./SegmentedControl";
 const { width: ScreenWidth } = Dimensions.get("screen");
 
 export const _containerStyle = (width?: number): ViewStyle => ({
-  height: 50,
   width: width || ScreenWidth - 32,
   display: "flex",
   flexDirection: "row",
@@ -44,12 +43,12 @@ export const _selectedTabStyle = (
 export default StyleSheet.create({
   tab: {
     flex: 1,
-    height: 50,
+    paddingVertical: 8, // iOS Default 
     alignItems: "center",
     justifyContent: "center",
   },
   textStyle: {
-    fontSize: 18,
+    fontSize: 14, // iOS Default
     textAlign: "center",
     fontWeight: "500",
   },
