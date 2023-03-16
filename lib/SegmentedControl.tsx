@@ -8,6 +8,7 @@ import {
   Dimensions,
   TouchableOpacity,
   TextStyle,
+  I18nManager
 } from "react-native";
 /**
  * ? Local Imports
@@ -63,7 +64,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 
   useEffect(() => {
     Animated.spring(slideAnimation, {
-      toValue: currentIndex * translateValue,
+      toValue: (I18nManager.isRTL ? -1 : 1) * currentIndex * translateValue,
       stiffness: 180,
       damping: 25,
       mass: 1,
