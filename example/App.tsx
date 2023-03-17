@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image, Dimensions } from "react-native";
-import SegmentedControl from "./lib/SegmentedControl";
+import SegmentedControl from "react-native-segmented-control-2";
 
 const { width: ScreenWidth } = Dimensions.get("screen");
 

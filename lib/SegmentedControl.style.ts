@@ -43,7 +43,7 @@ export const _selectedTabStyle = (
 export default StyleSheet.create({
   tab: {
     flex: 1,
-    paddingVertical: 8, // iOS Default 
+    paddingVertical: 8, // iOS Default
     alignItems: "center",
     justifyContent: "center",
   },

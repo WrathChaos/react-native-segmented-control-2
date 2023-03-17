@@ -8,7 +8,7 @@ import {
   Dimensions,
   TouchableOpacity,
   TextStyle,
-  I18nManager
+  I18nManager,
 } from "react-native";
 /**
  * ? Local Imports
