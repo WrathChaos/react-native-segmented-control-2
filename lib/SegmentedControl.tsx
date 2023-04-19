@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
   Animated,
   StyleProp,
   ViewStyle,
-  Dimensions,
   TouchableOpacity,
   TextStyle,
   I18nManager,
+  LayoutChangeEvent,
 } from "react-native";
 /**
  * ? Local Imports
  */
-import styles, {
-  _containerStyle,
-  _selectedTabStyle,
-} from "./SegmentedControl.style";
-
-const { width: ScreenWidth } = Dimensions.get("screen");
+import styles from "./SegmentedControl.style";
 
 export type CustomStyleProp =
   | StyleProp<ViewStyle>
@@ -27,11 +22,10 @@ type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<TextStyle>>;
 
 interface SegmentedControlProps {
   tabs: any[];
-  width?: number;
   initialIndex?: number;
   activeTextColor?: string;
   activeTabColor?: string;
-  extraSpacing?: number;
+  gap: number;
   style?: CustomStyleProp;
   tabStyle?: CustomStyleProp;
   textStyle?: CustomTextStyleProp;
@@ -42,25 +36,35 @@ interface SegmentedControlProps {
 const SegmentedControl: React.FC<SegmentedControlProps> = ({
   style,
   tabs,
-  width,
   onChange,
   tabStyle,
   textStyle,
   selectedTabStyle,
   initialIndex = 0,
+  gap = 2,
   activeTextColor = "#000",
   activeTabColor = "#fff",
-  extraSpacing = 0,
 }) => {
-  const translateValue =
-    (width ? width + extraSpacing : ScreenWidth - 35) / tabs.length;
   const [slideAnimation, _] = useState(new Animated.Value(0));
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const [width, setWidth] = useState<number>(0);
+  const translateValue = width / tabs.length;
+  const tabWidth = Math.max(width / tabs.length - gap * 2, 0);
 
-  const handleTabPress = React.useCallback((index) => {
-    setCurrentIndex(index);
-    onChange && onChange(index);
-  }, []);
+  const handleTabPress = useCallback(
+    (index: number) => {
+      setCurrentIndex(index);
+      onChange && onChange(index);
+    },
+    [onChange],
+  );
+
+  const handleLayout = useCallback(
+    ({ nativeEvent }: LayoutChangeEvent) => {
+      setWidth(nativeEvent.layout.width);
+    },
+    [setWidth],
+  );
 
   useEffect(() => {
     Animated.spring(slideAnimation, {
@@ -70,15 +74,24 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
       mass: 1,
       useNativeDriver: true,
     }).start();
-  }, [currentIndex]);
+  }, [currentIndex, slideAnimation, translateValue]);
 
-  const renderSelectedTab = () => (
-    <Animated.View
-      style={[
-        _selectedTabStyle(tabs, activeTabColor, slideAnimation, width),
-        selectedTabStyle,
-      ]}
-    />
+  const renderSelectedTab = useCallback(
+    () => (
+      <Animated.View
+        style={[
+          styles.activeTab,
+          {
+            width: tabWidth,
+            margin: gap,
+            backgroundColor: activeTabColor,
+            transform: [{ translateX: slideAnimation }],
+          },
+          selectedTabStyle,
+        ]}
+      />
+    ),
+    [activeTabColor, gap, selectedTabStyle, slideAnimation, tabWidth],
   );
 
   const renderTab = (tab: any, index: number) => {
@@ -110,10 +123,10 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   };
 
   return (
-    <Animated.View style={[_containerStyle(width), style]}>
+    <View style={[styles.container, style]} onLayout={handleLayout}>
       {renderSelectedTab()}
       {tabs.map((tab, index: number) => renderTab(tab, index))}
-    </Animated.View>
+    </View>
   );
 };
 

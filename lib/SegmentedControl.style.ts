@@ -1,29 +1,22 @@
-import { Dimensions, StyleSheet, ViewStyle } from "react-native";
-import { CustomStyleProp } from "./SegmentedControl";
-const { width: ScreenWidth } = Dimensions.get("screen");
+import { StyleSheet } from "react-native";
 
-export const _containerStyle = (width?: number): ViewStyle => ({
-  width: width || ScreenWidth - 32,
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  borderRadius: 8,
-  backgroundColor: "#F3F5F6",
-});
-
-export const _selectedTabStyle = (
-  tabs: any[],
-  activeTabColor: string,
-  translateXAnimation: any,
-  width?: number,
-): CustomStyleProp => [
-  {
-    ...StyleSheet.absoluteFillObject,
+export default StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
     borderRadius: 8,
-    marginVertical: 2,
-    marginHorizontal: 2,
-    width: (width ? width - 8 : ScreenWidth - 35) / tabs?.length,
-    backgroundColor: activeTabColor,
+    backgroundColor: "#F3F5F6",
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 8, // iOS Default
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  activeTab: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 6,
     shadowColor: "#000",
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -32,20 +25,6 @@ export const _selectedTabStyle = (
       height: 2,
     },
     elevation: 4,
-    transform: [
-      {
-        translateX: translateXAnimation,
-      },
-    ],
-  },
-];
-
-export default StyleSheet.create({
-  tab: {
-    flex: 1,
-    paddingVertical: 8, // iOS Default
-    alignItems: "center",
-    justifyContent: "center",
   },
   textStyle: {
     fontSize: 14, // iOS Default
