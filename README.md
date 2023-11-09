@@ -42,6 +42,19 @@ import SegmentedControl from "react-native-segmented-control-2";
 />
 ```
 
+As controlled component:
+
+```jsx
+const [index, setIndex] = useState(0)
+return (
+  <SegmentedControl
+    tabs={["Label 1", "Label 2", "Label 3"]}
+    onChange={setIndex}
+    value={index}
+  />
+)
+```
+
 ## Customized Usage
 
 ```jsx
@@ -79,6 +92,7 @@ should work of the example project.
 | -------- | :------: | :-------: | ---------------------------------------------------- |
 | tabs     |  any[]   | undefined | set the array for tabs                               |
 | onChange | function | undefined | set your own logic when the tab is pressed / changed |
+| value    | number   | undefined | value of index if used as a controlled component     |
 
 ## Customization (Optionals)
 

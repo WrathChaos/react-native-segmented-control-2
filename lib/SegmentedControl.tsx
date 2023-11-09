@@ -37,6 +37,7 @@ interface SegmentedControlProps {
   textStyle?: CustomTextStyleProp;
   selectedTabStyle?: CustomStyleProp;
   onChange: (index: number) => void;
+  value?: number;
 }
 
 const SegmentedControl: React.FC<SegmentedControlProps> = ({
@@ -44,6 +45,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   tabs,
   width,
   onChange,
+  value,
   tabStyle,
   textStyle,
   selectedTabStyle,
@@ -55,7 +57,8 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   const translateValue =
     (width ? width + extraSpacing : ScreenWidth - 35) / tabs.length;
   const [slideAnimation, _] = useState(new Animated.Value(0));
-  const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const [localCurrentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const currentIndex = value ?? localCurrentIndex;
 
   const handleTabPress = React.useCallback((index) => {
     setCurrentIndex(index);
