@@ -10,7 +10,7 @@ const history = require("./assets/history.png");
 
 const App = () => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
-  const [selectedGPT, setSelectedGPT] = React.useState<number>(0);
+  const [selectedGPT, setSelectedGPT] = React.useState<number>(1);
 
   const tabColors = ["red", "green"];
 
