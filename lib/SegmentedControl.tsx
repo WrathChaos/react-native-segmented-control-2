@@ -23,12 +23,14 @@ interface SegmentedControlProps {
   textStyle?: StyleProp<TextStyle>;
   selectedTabStyle?: StyleProp<ViewStyle>;
   onChange: (index: number) => void;
+  value?: number;
 }
 
 const SegmentedControl: React.FC<SegmentedControlProps> = ({
   style,
   tabs,
   onChange,
+  value,
   tabStyle,
   textStyle,
   selectedTabStyle,
@@ -38,10 +40,11 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   activeTabColor = "#fff",
 }) => {
   const [slideAnimation, _] = useState(new Animated.Value(0));
-  const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
   const [width, setWidth] = useState<number>(0);
   const translateValue = width / tabs.length;
   const tabWidth = Math.max(width / tabs.length - gap * 2, 0);
+  const [localCurrentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const currentIndex = value ?? localCurrentIndex;
 
   const handleTabPress = useCallback(
     (index: number) => {
