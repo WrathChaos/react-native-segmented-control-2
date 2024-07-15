@@ -97,13 +97,12 @@ should work of the example project.
 ## Customization (Optionals)
 
 | Property         |   Type    |      Default       | Description                                             |
-| ---------------- | :-------: | :----------------: | ------------------------------------------------------- |
+|------------------| :-------: | :----------------: | ------------------------------------------------------- |
 | style            | ViewStyle |      default       | set or override the style object for the main container |
-| width            |  number   | ScreenWidth \* 0.9 | change the width of the main segmented control          |
 | initialIndex     |  number   |         0          | set the initial index                                   |
 | activeTextColor  |  string   |        #000        | change the active tab's text color                      |
 | activeTabColor   |  string   |        #FFF        | change the active tab's color                           |
-| extraSpacing     |  number   |         0          | set extra spacing for animation horizontal value        |
+| gap              |  number   |         0          | set extra spacing for animation horizontal value        |
 | tabStyle         | ViewStyle |      default       | set or override the style object for the tab            |
 | selectedTabStyle | ViewStyle |      default       | set or override the style object for the selected tab   |
 | textStyle        | TextStyle |      default       | set or override the style object for tab's text         |
@@ -111,6 +110,8 @@ should work of the example project.
 ## Future Plans
 
 - [x] ~~LICENSE~~
+- [x] ~~Controller component support~~ (Thanks to @madox2 (https://github.com/WrathChaos/react-native-segmented-control-2/pull/6))
+- [x] ~~Getting rid of screen width and manual width dependencies~~ (Thanks to @philo23 (https://github.com/WrathChaos/react-native-segmented-control-2/pull/7)
 - [ ] Write an article about the lib on Medium
 
 ## Credits
@@ -120,7 +121,7 @@ Heavily inspired by these libraries:
 - [react-native-segmented-control/segmented-control](https://github.com/react-native-segmented-control/segmented-control)
 - [Karthik-B-06/react-native-segmented-control](https://github.com/Karthik-B-06/react-native-segmented-control)
 
-I created this library because they're really not maintain actively and this is a pure javascript written library
+I created this library because they're really not maintain actively and this is a pure javascript written library with a lot of customizations and better code structure
 
 ## Author
 
