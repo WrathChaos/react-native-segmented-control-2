@@ -6132,10 +6132,10 @@ react-native-gradle-plugin@^0.0.6:
   resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.6.tgz"
   integrity sha512-eIlgtsmDp1jLC24dRn43hB3kEcZVqx6DUQbR0N1ABXGnMEafm9I3V3dUUeD1vh+Dy5WqijSoEwLNUPLgu5zDMg==
 
-react-native-segmented-control-2@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/react-native-segmented-control-2/-/react-native-segmented-control-2-1.0.2.tgz"
-  integrity sha512-uNWYvZ7gBPgFMT815xZHJCSyH4BTjc3enmp3T46mWWJ0b1YQ0cffVRSmX1ZOmm8vkKlqAmjv+aDMAaa5U1Jghg==
+react-native-segmented-control-2@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/react-native-segmented-control-2/-/react-native-segmented-control-2-2.0.1.tgz"
+  integrity sha512-pc6G+QWfbC1rADW6QWVFiVMn5xVZ4xWXPD2gdyKnquqK/8cMNSF90klQK8N9MnlAdbVuhxWkq1HcNYNjom4lIg==
 
 react-native@*, react-native@0.68.2:
   version "0.68.2"
