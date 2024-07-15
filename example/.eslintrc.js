@@ -24,7 +24,6 @@ module.exports = {
     "prettier",
     "react-hooks",
     "@typescript-eslint",
-    "promise",
     "jest",
     "unused-imports",
   ],

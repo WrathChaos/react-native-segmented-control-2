@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Image, Dimensions } from "react-native";
-import SegmentedControl from "react-native-segmented-control-2";
+import { View, Image, Dimensions, Text } from "react-native";
+import SegmentedControl from "./lib/SegmentedControl";
 
 const { width: ScreenWidth } = Dimensions.get("screen");
 
@@ -10,6 +10,7 @@ const history = require("./assets/history.png");
 
 const App = () => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+  const [selectedGPT, setSelectedGPT] = React.useState<number>(0);
 
   const tabColors = ["red", "green"];
 
@@ -47,12 +48,51 @@ const App = () => {
     />
   );
 
+  const renderGPT3 = () => (
+    <View style={{
+      flexDirection: "row",
+      alignItems: "center"}}>
+      <Image
+        resizeMode="contain"
+        source={require("./assets/bolt.png")}
+        style={{
+          width: 15,
+          height: 15,
+          tintColor: selectedGPT === 0 ?"#FFC66D" : "#9494A4",
+        }}
+
+      />
+      <Text style={{ marginLeft: 5,color: selectedGPT === 0 ? "#010101" : "#9494A4", fontWeight:"bold"}}>GPT-3.5</Text>
+    </View>
+  );
+
+
+  const renderGPT4o = () => (
+    <View style={{
+      flexDirection: "row",
+      alignItems: "center"}}>
+      <Image
+        resizeMode="contain"
+        source={require("./assets/stars-2.png")}
+        style={{
+          width: 20,
+          height: 20,
+          tintColor: selectedGPT === 1 ? "#A26BF7" : "#9494A4",
+        }}
+
+      />
+      <Text style={{ marginLeft: 5,color: selectedGPT === 1 ? "#010101" : "#9494A4", fontWeight:"bold"}}>GPT-4o</Text>
+    </View>
+  );
+
+
+  // @ts-ignore
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <SegmentedControl
         tabs={[renderAdd(), renderMinus()]}
-        width={ScreenWidth * 0.3}
         activeTextColor="#fff"
+        style={{width: ScreenWidth * 0.3}}
         activeTabColor={tabColors[currentIndex]}
         onChange={(index: number) => setCurrentIndex(index)}
       />
@@ -63,9 +103,11 @@ const App = () => {
         onChange={(index: number) => console.log("Index: ", index)}
       />
       <SegmentedControl
-        style={{ marginTop: 32 }}
-        tabs={["Home", "Shop"]}
-        onChange={(index: number) => console.log("Index: ", index)}
+        style={{ marginTop: 32,height: 55 }}
+        tabs={[renderGPT3(), renderGPT4o()]}
+        gap={5}
+        initialIndex={1}
+        onChange={(index: number) => setSelectedGPT(index)}
       />
       <SegmentedControl
         style={{ marginTop: 32 }}

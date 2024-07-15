@@ -15,12 +15,7 @@ export default StyleSheet.create<any>({
     alignItems: "center",
     justifyContent: "center",
   },
-  activeTab: (
-    tabWidth: number,
-    gap: number,
-    activeTabColor: string,
-    slideAnimation: Animated.Value,
-  ) => ({
+  activeTab: (tabWidth: number, gap: number, activeTabColor: string, slideAnimation: Animated.Value) => ({
     ...StyleSheet.absoluteFillObject,
     width: tabWidth,
     margin: gap,
