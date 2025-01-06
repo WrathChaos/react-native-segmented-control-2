@@ -186,6 +186,26 @@
         "signature": "89bf2b7a601b73ea4311eda9c41f86a58994fec1bee3b87c4a14d68d9adcdcbd",
         "affectsGlobalScope": true
       },
+      "../../node_modules/@types/react/global.d.ts": {
+        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "affectsGlobalScope": true
+      },
+      "../../node_modules/csstype/index.d.ts": {
+        "version": "b3a4ee9791cdd4f5029b3ffe60b9cae1ac308a4238b0444f40a5222e4ecc5cc1",
+        "signature": "b3a4ee9791cdd4f5029b3ffe60b9cae1ac308a4238b0444f40a5222e4ecc5cc1",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/prop-types/index.d.ts": {
+        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/react/index.d.ts": {
+        "version": "2b9f3e90d70810dab17d5eca94a736e2eed7d57d603b8879ea0a3c2829ddb26b",
+        "signature": "2b9f3e90d70810dab17d5eca94a736e2eed7d57d603b8879ea0a3c2829ddb26b",
+        "affectsGlobalScope": true
+      },
       "../../node_modules/@types/react-native/globals.d.ts": {
         "version": "a4a0dff9c7f59d357b6ec45c22cdab883c628748a6947426a0611a13a27c950e",
         "signature": "a4a0dff9c7f59d357b6ec45c22cdab883c628748a6947426a0611a13a27c950e",
@@ -211,30 +231,30 @@
         "signature": "234b97ac9af46707f2315ff395a9b340d37b7dbc8290d91f5d6bd97189d220f3",
         "affectsGlobalScope": false
       },
-      "../../node_modules/@types/react/global.d.ts": {
-        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
-        "affectsGlobalScope": true
-      },
-      "../../node_modules/csstype/index.d.ts": {
-        "version": "b3a4ee9791cdd4f5029b3ffe60b9cae1ac308a4238b0444f40a5222e4ecc5cc1",
-        "signature": "b3a4ee9791cdd4f5029b3ffe60b9cae1ac308a4238b0444f40a5222e4ecc5cc1",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/prop-types/index.d.ts": {
-        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/react/index.d.ts": {
-        "version": "2b9f3e90d70810dab17d5eca94a736e2eed7d57d603b8879ea0a3c2829ddb26b",
-        "signature": "2b9f3e90d70810dab17d5eca94a736e2eed7d57d603b8879ea0a3c2829ddb26b",
-        "affectsGlobalScope": true
-      },
       "../../node_modules/@types/react-native/index.d.ts": {
         "version": "6364cf4e3f2ba09d2074d69520d3d4b01ce872ea32dbba81c1765e3ae32cea12",
         "signature": "6364cf4e3f2ba09d2074d69520d3d4b01ce872ea32dbba81c1765e3ae32cea12",
         "affectsGlobalScope": true
+      },
+      "./segmentedcontrol.d.ts": {
+        "version": "232837e45c7168d2337c0baf564022031409c591e4ed0301cc31582736b9e97e",
+        "signature": "232837e45c7168d2337c0baf564022031409c591e4ed0301cc31582736b9e97e",
+        "affectsGlobalScope": false
+      },
+      "./segmentedcontrol.style.d.ts": {
+        "version": "46a0b34e1264c4d25ca6646ff0e6cfaa7275ea1ae5a6bc23d4dfd84edf2f2b2e",
+        "signature": "46a0b34e1264c4d25ca6646ff0e6cfaa7275ea1ae5a6bc23d4dfd84edf2f2b2e",
+        "affectsGlobalScope": false
+      },
+      "./segmentedcontrol.js": {
+        "version": "51b3c6925d95d3600d432298a5da5995cc5f7da0a62a50dddb703192d9b0fe87",
+        "signature": "aec4bd1a23ae0e2c9d3e240ba4837bca16db674e7f107ed231316514e8891315",
+        "affectsGlobalScope": false
+      },
+      "./segmentedcontrol.style.js": {
+        "version": "6822c2e4bc80ad0564bb48eb72c250cc390e681fb230e74d227b238e4cd1b4e6",
+        "signature": "bbbdee6d97c147becc7f1f8e27cbdadcfd34fbfb2675995060e1319bb1e8838d",
+        "affectsGlobalScope": false
       },
       "../../lib/segmentedcontrol.style.ts": {
         "version": "2bb4e4dede3123c113fc099fd7f063ad00250dfb142f0002d9d1dbee40f7a52a",
@@ -242,8 +262,8 @@
         "affectsGlobalScope": false
       },
       "../../lib/segmentedcontrol.tsx": {
-        "version": "2def555837a1c9d497bd66417299a4a1e873168c285987040d2682c36de2099c",
-        "signature": "232837e45c7168d2337c0baf564022031409c591e4ed0301cc31582736b9e97e",
+        "version": "8c1ac38b24306035873815de37595ded4724a154b056e17de2cd317b30d2708d",
+        "signature": "25b360bb93f46e853c49c1fafa03baf4991205837df400a1a5f45a5ac8da3673",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/eslint-visitor-keys/index.d.ts": {
@@ -598,6 +618,24 @@
       "configFilePath": "../../tsconfig.json"
     },
     "referencedMap": {
+      "./segmentedcontrol.d.ts": [
+        "../../node_modules/@types/node/util.d.ts",
+        "../../node_modules/@types/react-native/index.d.ts",
+        "../../node_modules/@types/react/index.d.ts"
+      ],
+      "./segmentedcontrol.js": [
+        "../../node_modules/@types/node/util.d.ts",
+        "../../node_modules/@types/react-native/index.d.ts",
+        "../../node_modules/@types/react/index.d.ts",
+        "./segmentedcontrol.style.d.ts"
+      ],
+      "./segmentedcontrol.style.d.ts": [
+        "../../node_modules/@types/node/util.d.ts"
+      ],
+      "./segmentedcontrol.style.js": [
+        "../../node_modules/@types/node/util.d.ts",
+        "../../node_modules/@types/react-native/index.d.ts"
+      ],
       "../../lib/segmentedcontrol.style.ts": [
         "../../node_modules/@types/node/util.d.ts",
         "../../node_modules/@types/react-native/index.d.ts"
@@ -1132,6 +1170,14 @@
       ]
     },
     "exportedModulesMap": {
+      "./segmentedcontrol.d.ts": [
+        "../../node_modules/@types/node/util.d.ts",
+        "../../node_modules/@types/react-native/index.d.ts",
+        "../../node_modules/@types/react/index.d.ts"
+      ],
+      "./segmentedcontrol.style.d.ts": [
+        "../../node_modules/@types/node/util.d.ts"
+      ],
       "../../lib/segmentedcontrol.tsx": [
         "../../node_modules/@types/react-native/index.d.ts",
         "../../node_modules/@types/react/index.d.ts"
@@ -1660,6 +1706,10 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
+      "./segmentedcontrol.d.ts",
+      "./segmentedcontrol.js",
+      "./segmentedcontrol.style.d.ts",
+      "./segmentedcontrol.style.js",
       "../../lib/segmentedcontrol.style.ts",
       "../../lib/segmentedcontrol.tsx",
       "../../node_modules/@types/eslint-visitor-keys/index.d.ts",
