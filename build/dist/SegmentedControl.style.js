@@ -8,6 +8,10 @@ export default StyleSheet.create({
         borderRadius: 8,
         backgroundColor: "#F3F5F6",
     },
+    tabsContainer: {
+        flex: 1,
+        flexDirection: "row",
+    },
     tab: {
         flex: 1,
         paddingVertical: 8,

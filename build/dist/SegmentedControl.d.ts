@@ -7,7 +7,7 @@ interface SegmentedControlProps {
     activeTabColor?: string;
     gap?: number;
     style?: StyleProp<ViewStyle>;
-    tabStyle?: StyleProp<ViewStyle>;
+    tabStyle?: StyleProp<ViewStyle> | ((index: number) => StyleProp<ViewStyle>);
     textStyle?: StyleProp<TextStyle>;
     activeTextStyle?: StyleProp<TextStyle>;
     selectedTabStyle?: StyleProp<ViewStyle>;

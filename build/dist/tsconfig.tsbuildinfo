@@ -237,13 +237,13 @@
         "affectsGlobalScope": true
       },
       "../../lib/segmentedcontrol.style.ts": {
-        "version": "2bb4e4dede3123c113fc099fd7f063ad00250dfb142f0002d9d1dbee40f7a52a",
+        "version": "a6b897a2a4deebf19499cdae7ab08610ada7080605ce9b39c0e98b8090f03595",
         "signature": "46a0b34e1264c4d25ca6646ff0e6cfaa7275ea1ae5a6bc23d4dfd84edf2f2b2e",
         "affectsGlobalScope": false
       },
       "../../lib/segmentedcontrol.tsx": {
-        "version": "8c1ac38b24306035873815de37595ded4724a154b056e17de2cd317b30d2708d",
-        "signature": "25b360bb93f46e853c49c1fafa03baf4991205837df400a1a5f45a5ac8da3673",
+        "version": "679b45a69596285bd53bd84a69869007a02c57ffad5b3705430b5c61144c4975",
+        "signature": "cbd803b6e339553b27b5eb0f5ddf9c72aac3411def2cb6a5ffa73650915d997e",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/eslint-visitor-keys/index.d.ts": {
