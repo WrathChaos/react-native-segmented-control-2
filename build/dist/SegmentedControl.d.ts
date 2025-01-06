@@ -9,6 +9,7 @@ interface SegmentedControlProps {
     style?: StyleProp<ViewStyle>;
     tabStyle?: StyleProp<ViewStyle>;
     textStyle?: StyleProp<TextStyle>;
+    activeTextStyle?: StyleProp<TextStyle>;
     selectedTabStyle?: StyleProp<ViewStyle>;
     onChange: (index: number) => void;
     value?: number;

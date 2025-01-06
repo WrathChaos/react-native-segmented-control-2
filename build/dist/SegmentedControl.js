@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { View, Text, Animated, TouchableOpacity, I18nManager, } from "react-native";
 import styles from "./SegmentedControl.style";
-const SegmentedControl = ({ style, tabs, onChange, value, tabStyle, textStyle, selectedTabStyle, initialIndex = 0, gap = 2, activeTextColor = "#000", activeTabColor = "#fff", }) => {
+const SegmentedControl = ({ style, tabs, onChange, value, tabStyle, textStyle, activeTextStyle, selectedTabStyle, initialIndex = 0, gap = 2, activeTextColor = "#000", activeTabColor = "#fff", }) => {
     const [slideAnimation, _] = useState(new Animated.Value(0));
     const [width, setWidth] = useState(0);
     const tabWidth = Math.max(width / tabs.length - gap * 2, 0);
@@ -25,7 +25,7 @@ const SegmentedControl = ({ style, tabs, onChange, value, tabStyle, textStyle, s
         }).start();
     }, [currentIndex, slideAnimation, tabLayouts]);
     const onLayoutTab = useCallback((index, { nativeEvent }) => {
-        setTabLayouts(prev => ({ ...prev, [index]: nativeEvent.layout }));
+        setTabLayouts((prev) => ({ ...prev, [index]: nativeEvent.layout }));
     }, []);
     const renderSelectedTab = useCallback(() => (<Animated.View style={[
         styles.activeTab(tabWidth, gap, activeTabColor, slideAnimation),
@@ -34,10 +34,11 @@ const SegmentedControl = ({ style, tabs, onChange, value, tabStyle, textStyle, s
     const renderTab = (tab, index) => {
         const isActiveTab = currentIndex === index;
         const isTabText = typeof tab === "string";
-        return (<TouchableOpacity key={index} activeOpacity={0.5} style={[styles.tab, tabStyle]} onPress={() => handleTabPress(index)} onLayout={e => onLayoutTab(index, e)}>
+        return (<TouchableOpacity key={index} activeOpacity={0.5} style={[styles.tab, tabStyle]} onPress={() => handleTabPress(index)} onLayout={(e) => onLayoutTab(index, e)}>
         {!isTabText ? (tab) : (<Text numberOfLines={1} style={[
             styles.textStyle,
             textStyle,
+            isActiveTab && activeTextStyle,
             isActiveTab && { color: activeTextColor },
         ]}>
             {tab}
