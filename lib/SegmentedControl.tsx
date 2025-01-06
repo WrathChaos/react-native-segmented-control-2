@@ -9,6 +9,7 @@ import {
   TextStyle,
   I18nManager,
   LayoutChangeEvent,
+  LayoutRectangle,
 } from "react-native";
 import styles from "./SegmentedControl.style";
 
@@ -41,9 +42,12 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 }) => {
   const [slideAnimation, _] = useState(new Animated.Value(0));
   const [width, setWidth] = useState<number>(0);
-  const translateValue = width / tabs.length;
   const tabWidth = Math.max(width / tabs.length - gap * 2, 0);
   const [localCurrentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const [tabLayouts, setTabLayouts] = useState<{
+    [tabIndex: number]: LayoutRectangle;
+  }>({});
+
   const currentIndex = value ?? localCurrentIndex;
 
   const handleTabPress = useCallback(
@@ -63,13 +67,21 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 
   useEffect(() => {
     Animated.spring(slideAnimation, {
-      toValue: (I18nManager.isRTL ? -1 : 1) * currentIndex * translateValue,
+      toValue:
+        (I18nManager.isRTL ? -1 : 1) * (tabLayouts[currentIndex]?.x || 0),
       stiffness: 180,
       damping: 25,
       mass: 1,
       useNativeDriver: true,
     }).start();
-  }, [currentIndex, slideAnimation, translateValue]);
+  }, [currentIndex, slideAnimation, tabLayouts]);
+
+  const onLayoutTab = useCallback(
+    (index: number, { nativeEvent }: LayoutChangeEvent) => {
+      setTabLayouts((prev) => ({ ...prev, [index]: nativeEvent.layout }));
+    },
+    [],
+  );
 
   const renderSelectedTab = useCallback(
     () => (
@@ -92,6 +104,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
         activeOpacity={0.5}
         style={[styles.tab, tabStyle]}
         onPress={() => handleTabPress(index)}
+        onLayout={(e) => onLayoutTab(index, e)}
       >
         {!isTabText ? (
           tab
