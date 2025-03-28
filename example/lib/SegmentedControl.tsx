@@ -22,6 +22,7 @@ interface SegmentedControlProps {
   style?: StyleProp<ViewStyle>;
   tabStyle?: StyleProp<ViewStyle> | ((index: number) => StyleProp<ViewStyle>);
   textStyle?: StyleProp<TextStyle>;
+  activeTextStyle?: StyleProp<TextStyle>;
   selectedTabStyle?: StyleProp<ViewStyle>;
   onChange: (index: number) => void;
   value?: number;
@@ -34,6 +35,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   value,
   tabStyle,
   textStyle,
+  activeTextStyle,
   selectedTabStyle,
   initialIndex = 0,
   gap = 2,
@@ -121,6 +123,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
             style={[
               styles.textStyle,
               textStyle,
+              isActiveTab && activeTextStyle,
               isActiveTab && { color: activeTextColor },
             ]}
           >
