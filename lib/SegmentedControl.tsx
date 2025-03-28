@@ -9,6 +9,7 @@ import {
   TextStyle,
   I18nManager,
   LayoutChangeEvent,
+  LayoutRectangle,
 } from "react-native";
 import styles from "./SegmentedControl.style";
 
@@ -19,7 +20,7 @@ interface SegmentedControlProps {
   activeTabColor?: string;
   gap?: number;
   style?: StyleProp<ViewStyle>;
-  tabStyle?: StyleProp<ViewStyle>;
+  tabStyle?: StyleProp<ViewStyle> | ((index: number) => StyleProp<ViewStyle>);
   textStyle?: StyleProp<TextStyle>;
   selectedTabStyle?: StyleProp<ViewStyle>;
   onChange: (index: number) => void;
@@ -40,10 +41,11 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   activeTabColor = "#fff",
 }) => {
   const [slideAnimation, _] = useState(new Animated.Value(0));
-  const [width, setWidth] = useState<number>(0);
-  const translateValue = width / tabs.length;
-  const tabWidth = Math.max(width / tabs.length - gap * 2, 0);
   const [localCurrentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const [tabLayouts, setTabLayouts] = useState<{
+    [tabIndex: number]: LayoutRectangle;
+  }>({});
+
   const currentIndex = value ?? localCurrentIndex;
 
   const handleTabPress = useCallback(
@@ -54,33 +56,50 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
     [onChange],
   );
 
-  const handleLayout = useCallback(
-    ({ nativeEvent }: LayoutChangeEvent) => {
-      setWidth(nativeEvent.layout.width);
-    },
-    [setWidth],
-  );
-
   useEffect(() => {
     Animated.spring(slideAnimation, {
-      toValue: (I18nManager.isRTL ? -1 : 1) * currentIndex * translateValue,
+      toValue:
+        (I18nManager.isRTL ? -1 : 1) * (tabLayouts[currentIndex]?.x || 0),
       stiffness: 180,
       damping: 25,
       mass: 1,
       useNativeDriver: true,
     }).start();
-  }, [currentIndex, slideAnimation, translateValue]);
+  }, [currentIndex, slideAnimation, tabLayouts]);
+
+  const onLayoutTab = useCallback(
+    (index: number, { nativeEvent }: LayoutChangeEvent) => {
+      setTabLayouts((prev) => ({ ...prev, [index]: nativeEvent.layout }));
+    },
+    [],
+  );
+
+  const tabSpecificStyle = useCallback(
+    (tabIndex: number) => {
+      if (typeof tabStyle === "function") {
+        return tabStyle(tabIndex);
+      }
+
+      return tabStyle;
+    },
+    [tabStyle],
+  );
 
   const renderSelectedTab = useCallback(
     () => (
       <Animated.View
         style={[
-          styles.activeTab(tabWidth, gap, activeTabColor, slideAnimation),
+          styles.activeTab(
+            tabLayouts[currentIndex]?.width || 0,
+            gap,
+            activeTabColor,
+            slideAnimation,
+          ),
           selectedTabStyle,
         ]}
       />
     ),
-    [activeTabColor, gap, selectedTabStyle, slideAnimation, tabWidth],
+    [activeTabColor, gap, selectedTabStyle, slideAnimation, tabLayouts],
   );
 
   const renderTab = (tab: any, index: number) => {
@@ -90,8 +109,9 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
       <TouchableOpacity
         key={index}
         activeOpacity={0.5}
-        style={[styles.tab, tabStyle]}
+        style={[styles.tab, tabSpecificStyle(index)]}
         onPress={() => handleTabPress(index)}
+        onLayout={(e) => onLayoutTab(index, e)}
       >
         {!isTabText ? (
           tab
@@ -112,9 +132,11 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   };
 
   return (
-    <View style={[styles.container, style]} onLayout={handleLayout}>
+    <View style={[styles.container, style]}>
       {renderSelectedTab()}
-      {tabs.map((tab, index: number) => renderTab(tab, index))}
+      <View style={[styles.tabsContainer, { marginHorizontal: gap }]}>
+        {tabs.map((tab, index: number) => renderTab(tab, index))}
+      </View>
     </View>
   );
 };
