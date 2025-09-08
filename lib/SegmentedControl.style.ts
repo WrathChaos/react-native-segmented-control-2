@@ -1,6 +1,6 @@
 import { Animated, StyleSheet } from "react-native";
 
-export default StyleSheet.create<any>({
+const baseStyles = StyleSheet.create({
   container: {
     display: "flex",
     width: "90%",
@@ -19,6 +19,15 @@ export default StyleSheet.create<any>({
     alignItems: "center",
     justifyContent: "center",
   },
+  textStyle: {
+    fontSize: 14, // iOS Default
+    textAlign: "center",
+    fontWeight: "500",
+  },
+});
+
+const styles = {
+  ...baseStyles,
   activeTab: (
     tabWidth: number,
     gap: number,
@@ -40,9 +49,6 @@ export default StyleSheet.create<any>({
     },
     elevation: 4,
   }),
-  textStyle: {
-    fontSize: 14, // iOS Default
-    textAlign: "center",
-    fontWeight: "500",
-  },
-});
+} as const;
+
+export default styles;

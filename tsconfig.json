@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "es6",
-    "lib": ["es6"],
+    "lib": [
+      "es6"
+    ],
     "allowJs": true,
     "jsx": "react-native",
     "noImplicitAny": false,
@@ -24,14 +26,22 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "typeRoots": ["./node_modules/@types", "./@types"],
+    "types": [
+      "react",
+      "react-native"
+    ],
     "declaration": true /* Generates corresponding '.d.ts' file. */,
     "sourceMap": true /* Generates corresponding '.map' file. */
   },
+  "include": [
+    "lib/**/*"
+  ],
   "exclude": [
     "example",
     "example-manual-state",
     "node_modules",
+    "build",
+    "scripts",
     "babel.config.js",
     "metro.config.js",
     "jest.config.js"

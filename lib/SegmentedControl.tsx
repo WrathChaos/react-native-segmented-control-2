@@ -13,8 +13,10 @@ import {
 } from "react-native";
 import styles from "./SegmentedControl.style";
 
+type TabItem = string | React.ReactElement;
+
 interface SegmentedControlProps {
-  tabs: any[];
+  tabs: TabItem[];
   initialIndex?: number;
   activeTextColor?: string;
   activeTabColor?: string;
@@ -42,7 +44,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   activeTextColor = "#000",
   activeTabColor = "#fff",
 }) => {
-  const [slideAnimation, _] = useState(new Animated.Value(0));
+  const [slideAnimation] = useState(new Animated.Value(0));
   const [localCurrentIndex, setCurrentIndex] = useState<number>(initialIndex);
   const [tabLayouts, setTabLayouts] = useState<{
     [tabIndex: number]: LayoutRectangle;
@@ -101,10 +103,17 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
         ]}
       />
     ),
-    [activeTabColor, gap, selectedTabStyle, slideAnimation, tabLayouts],
+    [
+      activeTabColor,
+      gap,
+      selectedTabStyle,
+      slideAnimation,
+      tabLayouts,
+      currentIndex,
+    ],
   );
 
-  const renderTab = (tab: any, index: number) => {
+  const renderTab = (tab: TabItem, index: number) => {
     const isActiveTab = currentIndex === index;
     const isTabText = typeof tab === "string";
     return (
